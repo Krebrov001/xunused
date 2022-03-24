@@ -63,6 +63,8 @@ $(addprefix $(BINDIR)/,$(EXECUTABLE)): $(EXECUTABLE)
 
 # File dependencies
 $(EXECUTABLE): $(O_FILES)
+	$(CXX)   $(O_FILES) -lclangStaticAnalyzerFrontend -lclangStaticAnalyzerCheckers -lclangStaticAnalyzerCore -lclangCrossTU -lclangIndex -lclangTooling -lclangFormat -lclangToolingInclusions -lclangToolingCore -lclangFrontend -lclangSerialization -lclangParse -lclangSema -lclangAnalysis -lclangEdit -lclangASTMatchers -lclangAST -lclangRewrite -lclangLex -lclangDriver -lclangBasic -lLLVMMCParser -lLLVMMC -lLLVMDebugInfoCodeView -lLLVMDebugInfoMSF -lLLVMOption -lLLVMBitReader -lLLVMBitstreamReader -lLLVMProfileData -lLLVMCore -lLLVMRemarks -lLLVMBinaryFormat -lLLVMSupport -lLLVMDemangle -lrt -ldl -ltinfo -lpthread -lm -o $(EXECUTABLE)
+
 main.o: main.cpp
 
 .PHONY: clean
